@@ -28,7 +28,7 @@ public class MiniteaPicServiceImpl implements MiniteaPicService {
 
 	@Override
 	public int addOne(MiniteaPic pic) throws Exception {
-		///
+		//
 		return 0;
 	}
 }
