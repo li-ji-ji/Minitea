@@ -20,15 +20,26 @@ public class MiniteaPicServiceImpl implements MiniteaPicService {
 		return picMapper.selectByExample(null);
 	}
 
-	// 根据id查询
 	@Override
-	public MiniteaPic getById(Integer id) throws Exception{
-		return picMapper.selectByPrimaryKey(id);
+	public int add(MiniteaPic pic) throws Exception {
+		return picMapper.insertSelective(pic);
 	}
 
 	@Override
-	public int addOne(MiniteaPic pic) throws Exception {
-		//
-		return 0;
+	public int update(MiniteaPic pic) throws Exception {
+		return picMapper.updateByPrimaryKeySelective(pic);
 	}
+
+	@Override
+	public int delete(Integer id) throws Exception {
+		return picMapper.deleteByPrimaryKey(id);
+	}
+	
+
+	// 根据id查找
+	@Override
+	public MiniteaPic getById (Integer id) throws Exception{
+		return picMapper.selectByPrimaryKey(id);
+	}
+
 }
