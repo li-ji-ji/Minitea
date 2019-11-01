@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import cn.lf.Minitea.mapper.extend.PicMapperExtends;
 import cn.lf.Minitea.po.MiniteaPic;
 import cn.lf.Minitea.service.MiniteaPicService;
+import cn.lf.Minitea.utils.TencentCOS;
 
 @Service
 public class MiniteaPicServiceImpl implements MiniteaPicService {
@@ -32,6 +33,8 @@ public class MiniteaPicServiceImpl implements MiniteaPicService {
 
 	@Override
 	public int delete(Integer id) throws Exception {
+		MiniteaPic pic= getById(id);
+		TencentCOS.deletefile(pic.getPicKey());
 		return picMapper.deleteByPrimaryKey(id);
 	}
 	

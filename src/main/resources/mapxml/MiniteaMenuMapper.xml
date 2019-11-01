@@ -3,13 +3,14 @@
 <mapper namespace="cn.lf.Minitea.mapper.MiniteaMenuMapper" >
   <resultMap id="BaseResultMap" type="cn.lf.Minitea.po.MiniteaMenu" >
     <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="p_id" property="pId" jdbcType="INTEGER" />
+    <result column="p_name" property="pName" jdbcType="VARCHAR" />
     <result column="menu_name" property="menuName" jdbcType="VARCHAR" />
     <result column="menu_url" property="menuUrl" jdbcType="VARCHAR" />
     <result column="menu_sort" property="menuSort" jdbcType="INTEGER" />
     <result column="menu_status" property="menuStatus" jdbcType="INTEGER" />
-  </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="cn.lf.Minitea.po.MiniteaMenu" extends="BaseResultMap" >
-    <result column="menu_img" property="menuImg" jdbcType="LONGVARCHAR" />
+    <result column="menu_img" property="menuImg" jdbcType="VARCHAR" />
+    <result column="menu_intro" property="menuIntro" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -70,27 +71,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, menu_name, menu_url, menu_sort, menu_status
+    id, p_id, p_name, menu_name, menu_url, menu_sort, menu_status, menu_img, menu_intro
   </sql>
-  <sql id="Blob_Column_List" >
-    menu_img
-  </sql>
-  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="cn.lf.Minitea.po.MiniteaMenuExample" >
-    select
-    <if test="distinct" >
-      distinct
-    </if>
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from minitea_menu
-    <if test="_parameter != null" >
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null" >
-      order by ${orderByClause}
-    </if>
-  </select>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.lf.Minitea.po.MiniteaMenuExample" >
     select
     <if test="distinct" >
@@ -105,11 +87,9 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
     from minitea_menu
     where id = #{id,jdbcType=INTEGER}
   </select>
@@ -124,11 +104,13 @@
     </if>
   </delete>
   <insert id="insert" parameterType="cn.lf.Minitea.po.MiniteaMenu" >
-    insert into minitea_menu (id, menu_name, menu_url, 
-      menu_sort, menu_status, menu_img
+    insert into minitea_menu (id, p_id, p_name, 
+      menu_name, menu_url, menu_sort, 
+      menu_status, menu_img, menu_intro
       )
-    values (#{id,jdbcType=INTEGER}, #{menuName,jdbcType=VARCHAR}, #{menuUrl,jdbcType=VARCHAR}, 
-      #{menuSort,jdbcType=INTEGER}, #{menuStatus,jdbcType=INTEGER}, #{menuImg,jdbcType=LONGVARCHAR}
+    values (#{id,jdbcType=INTEGER}, #{pId,jdbcType=INTEGER}, #{pName,jdbcType=VARCHAR}, 
+      #{menuName,jdbcType=VARCHAR}, #{menuUrl,jdbcType=VARCHAR}, #{menuSort,jdbcType=INTEGER}, 
+      #{menuStatus,jdbcType=INTEGER}, #{menuImg,jdbcType=VARCHAR}, #{menuIntro,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="cn.lf.Minitea.po.MiniteaMenu" >
@@ -136,6 +118,12 @@
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
+      </if>
+      <if test="pId != null" >
+        p_id,
+      </if>
+      <if test="pName != null" >
+        p_name,
       </if>
       <if test="menuName != null" >
         menu_name,
@@ -152,10 +140,19 @@
       <if test="menuImg != null" >
         menu_img,
       </if>
+      <if test="menuIntro != null" >
+        menu_intro,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
+      </if>
+      <if test="pId != null" >
+        #{pId,jdbcType=INTEGER},
+      </if>
+      <if test="pName != null" >
+        #{pName,jdbcType=VARCHAR},
       </if>
       <if test="menuName != null" >
         #{menuName,jdbcType=VARCHAR},
@@ -170,7 +167,10 @@
         #{menuStatus,jdbcType=INTEGER},
       </if>
       <if test="menuImg != null" >
-        #{menuImg,jdbcType=LONGVARCHAR},
+        #{menuImg,jdbcType=VARCHAR},
+      </if>
+      <if test="menuIntro != null" >
+        #{menuIntro,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -186,6 +186,12 @@
       <if test="record.id != null" >
         id = #{record.id,jdbcType=INTEGER},
       </if>
+      <if test="record.pId != null" >
+        p_id = #{record.pId,jdbcType=INTEGER},
+      </if>
+      <if test="record.pName != null" >
+        p_name = #{record.pName,jdbcType=VARCHAR},
+      </if>
       <if test="record.menuName != null" >
         menu_name = #{record.menuName,jdbcType=VARCHAR},
       </if>
@@ -199,21 +205,12 @@
         menu_status = #{record.menuStatus,jdbcType=INTEGER},
       </if>
       <if test="record.menuImg != null" >
-        menu_img = #{record.menuImg,jdbcType=LONGVARCHAR},
+        menu_img = #{record.menuImg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.menuIntro != null" >
+        menu_intro = #{record.menuIntro,jdbcType=VARCHAR},
       </if>
     </set>
-    <if test="_parameter != null" >
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByExampleWithBLOBs" parameterType="map" >
-    update minitea_menu
-    set id = #{record.id,jdbcType=INTEGER},
-      menu_name = #{record.menuName,jdbcType=VARCHAR},
-      menu_url = #{record.menuUrl,jdbcType=VARCHAR},
-      menu_sort = #{record.menuSort,jdbcType=INTEGER},
-      menu_status = #{record.menuStatus,jdbcType=INTEGER},
-      menu_img = #{record.menuImg,jdbcType=LONGVARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -221,10 +218,14 @@
   <update id="updateByExample" parameterType="map" >
     update minitea_menu
     set id = #{record.id,jdbcType=INTEGER},
+      p_id = #{record.pId,jdbcType=INTEGER},
+      p_name = #{record.pName,jdbcType=VARCHAR},
       menu_name = #{record.menuName,jdbcType=VARCHAR},
       menu_url = #{record.menuUrl,jdbcType=VARCHAR},
       menu_sort = #{record.menuSort,jdbcType=INTEGER},
-      menu_status = #{record.menuStatus,jdbcType=INTEGER}
+      menu_status = #{record.menuStatus,jdbcType=INTEGER},
+      menu_img = #{record.menuImg,jdbcType=VARCHAR},
+      menu_intro = #{record.menuIntro,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -232,6 +233,12 @@
   <update id="updateByPrimaryKeySelective" parameterType="cn.lf.Minitea.po.MiniteaMenu" >
     update minitea_menu
     <set >
+      <if test="pId != null" >
+        p_id = #{pId,jdbcType=INTEGER},
+      </if>
+      <if test="pName != null" >
+        p_name = #{pName,jdbcType=VARCHAR},
+      </if>
       <if test="menuName != null" >
         menu_name = #{menuName,jdbcType=VARCHAR},
       </if>
@@ -245,26 +252,24 @@
         menu_status = #{menuStatus,jdbcType=INTEGER},
       </if>
       <if test="menuImg != null" >
-        menu_img = #{menuImg,jdbcType=LONGVARCHAR},
+        menu_img = #{menuImg,jdbcType=VARCHAR},
+      </if>
+      <if test="menuIntro != null" >
+        menu_intro = #{menuIntro,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="cn.lf.Minitea.po.MiniteaMenu" >
+  <update id="updateByPrimaryKey" parameterType="cn.lf.Minitea.po.MiniteaMenu" >
     update minitea_menu
-    set menu_name = #{menuName,jdbcType=VARCHAR},
+    set p_id = #{pId,jdbcType=INTEGER},
+      p_name = #{pName,jdbcType=VARCHAR},
+      menu_name = #{menuName,jdbcType=VARCHAR},
       menu_url = #{menuUrl,jdbcType=VARCHAR},
       menu_sort = #{menuSort,jdbcType=INTEGER},
       menu_status = #{menuStatus,jdbcType=INTEGER},
-      menu_img = #{menuImg,jdbcType=LONGVARCHAR}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="cn.lf.Minitea.po.MiniteaMenu" >
-    update minitea_menu
-    set menu_name = #{menuName,jdbcType=VARCHAR},
-      menu_url = #{menuUrl,jdbcType=VARCHAR},
-      menu_sort = #{menuSort,jdbcType=INTEGER},
-      menu_status = #{menuStatus,jdbcType=INTEGER}
+      menu_img = #{menuImg,jdbcType=VARCHAR},
+      menu_intro = #{menuIntro,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

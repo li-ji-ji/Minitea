@@ -11,6 +11,7 @@
 		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
 			connectionURL="jdbc:mysql://203.195.158.228:3306/Minitea" userId="root"
 			password="15935728">
+			<property name="nullCatalogMeansCurrent" value="true" />
 		</jdbcConnection>
 
 		<javaTypeResolver>
@@ -34,7 +35,10 @@
 		</javaClientGenerator>
 		<!-- <table tableName="water_elect_record"></table> -->
 		<!-- <table tableName="householder"></table> -->
-		<!-- <table tableName="minitea_menu"></table> -->
+		<!-- <table tableName="minitea_menu">
+		   <columnOverride column="menu_intro" javaType ="java.lang.String" jdbcType="VARCHAR"/>
+		   <columnOverride column="menu_img" javaType ="java.lang.String" jdbcType="VARCHAR"/>
+		</table> -->
 		<!-- <table tableName="minitea_user"></table> -->
 		<table tableName="minitea_pic"></table>
 		

@@ -1,6 +1,7 @@
 package cn.lf.Minitea.po;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class MiniteaPicExample {
@@ -551,6 +552,136 @@ public class MiniteaPicExample {
 
         public Criteria andPicIntroNotBetween(String value1, String value2) {
             addCriterion("pic_intro not between", value1, value2, "picIntro");
+            return (Criteria) this;
+        }
+
+        public Criteria andUploadTimeIsNull() {
+            addCriterion("upload_time is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUploadTimeIsNotNull() {
+            addCriterion("upload_time is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUploadTimeEqualTo(Date value) {
+            addCriterion("upload_time =", value, "uploadTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andUploadTimeNotEqualTo(Date value) {
+            addCriterion("upload_time <>", value, "uploadTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andUploadTimeGreaterThan(Date value) {
+            addCriterion("upload_time >", value, "uploadTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andUploadTimeGreaterThanOrEqualTo(Date value) {
+            addCriterion("upload_time >=", value, "uploadTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andUploadTimeLessThan(Date value) {
+            addCriterion("upload_time <", value, "uploadTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andUploadTimeLessThanOrEqualTo(Date value) {
+            addCriterion("upload_time <=", value, "uploadTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andUploadTimeIn(List<Date> values) {
+            addCriterion("upload_time in", values, "uploadTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andUploadTimeNotIn(List<Date> values) {
+            addCriterion("upload_time not in", values, "uploadTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andUploadTimeBetween(Date value1, Date value2) {
+            addCriterion("upload_time between", value1, value2, "uploadTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andUploadTimeNotBetween(Date value1, Date value2) {
+            addCriterion("upload_time not between", value1, value2, "uploadTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicKeyIsNull() {
+            addCriterion("pic_key is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicKeyIsNotNull() {
+            addCriterion("pic_key is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicKeyEqualTo(String value) {
+            addCriterion("pic_key =", value, "picKey");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicKeyNotEqualTo(String value) {
+            addCriterion("pic_key <>", value, "picKey");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicKeyGreaterThan(String value) {
+            addCriterion("pic_key >", value, "picKey");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicKeyGreaterThanOrEqualTo(String value) {
+            addCriterion("pic_key >=", value, "picKey");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicKeyLessThan(String value) {
+            addCriterion("pic_key <", value, "picKey");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicKeyLessThanOrEqualTo(String value) {
+            addCriterion("pic_key <=", value, "picKey");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicKeyLike(String value) {
+            addCriterion("pic_key like", value, "picKey");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicKeyNotLike(String value) {
+            addCriterion("pic_key not like", value, "picKey");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicKeyIn(List<String> values) {
+            addCriterion("pic_key in", values, "picKey");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicKeyNotIn(List<String> values) {
+            addCriterion("pic_key not in", values, "picKey");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicKeyBetween(String value1, String value2) {
+            addCriterion("pic_key between", value1, value2, "picKey");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicKeyNotBetween(String value1, String value2) {
+            addCriterion("pic_key not between", value1, value2, "picKey");
             return (Criteria) this;
         }
     }

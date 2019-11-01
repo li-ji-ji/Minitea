@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import cn.lf.Minitea.dto.AdminMenuVM;
 import cn.lf.Minitea.po.MiniteaMenu;
 import cn.lf.Minitea.service.MiniteaMenuService;
 
@@ -57,5 +59,12 @@ public class MenuController {
 	public ModelAndView delete(ModelAndView mav,Integer id) throws Exception{
 		menuService.delete(id);
 		return new ModelAndView("redirect:/menu/toTable");
+	}
+	
+	//查询所有菜单并封装
+	@RequestMapping("/getMenuVM")
+	@ResponseBody
+	public List<AdminMenuVM> getMenuVM() throws Exception{
+		return menuService.getMenuVM();
 	}
 }

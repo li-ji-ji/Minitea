@@ -4,16 +4,48 @@
 <html>
 <head>
 	<meta charset="utf-8"> 
-	<title>菜单列表</title>
+	<title>图片列表</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
 	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
+<style>
+
+
+	body{
+		padding: 5px;
+	}
+	td{
+		max-width: 150px;
+		white-space:nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	.imgShow{
+		display:none;
+		max-width:150px;
+		max-height: 150px;
+	}
+	.tdImg{
+		
+	}
+	.tdImg:hover .imgShow{
+		display: block;
+		position: absolute;
+	}
+	.container{
+		width: 100%;
+		padding:10px;
+		max-width: 5000px !important;
+	}
+	th,td{
+		text-align: center;
+	}
+</style>
 <body>
 	
 <div class="container">
-	<h2>图片列表</h2>    
 	<a class="btn btn-info" href="/pic/toAdd">添加</a>      
 	<table class="table table-hover">
 		<thead>
@@ -34,7 +66,7 @@
 				<tr>
 					<td>${pic.id}</td>
 					<td>${pic.picName}</td>
-					<td>${pic.picUrl}</td>
+					<td class="tdImg">${pic.picUrl}<img class="imgShow" alt="无法加载" src="${pic.picUrl}"></td>
 					<td>${pic.picStatus}</td>
 					<td>${pic.picWidth}</td>
 					<td>${pic.picHeight}</td>

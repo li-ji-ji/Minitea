@@ -162,7 +162,7 @@
     	    	"success"	: function (resultMsg) {                        
 	    	    		console.log(resultMsg)
 	    	    		if(resultMsg==1){
-	        	    		window.location.href = "${base}/menu/toTable";
+	        	    		window.location.href = "${base}/admin/index";
 	    	    		}else{
 	    	        		layer.msg('密码或用户名错误，请重新输入');
 	    	    		}

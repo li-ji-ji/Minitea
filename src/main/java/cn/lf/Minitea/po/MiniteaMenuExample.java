@@ -164,6 +164,136 @@ public class MiniteaMenuExample {
             return (Criteria) this;
         }
 
+        public Criteria andPIdIsNull() {
+            addCriterion("p_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPIdIsNotNull() {
+            addCriterion("p_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPIdEqualTo(Integer value) {
+            addCriterion("p_id =", value, "pId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPIdNotEqualTo(Integer value) {
+            addCriterion("p_id <>", value, "pId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPIdGreaterThan(Integer value) {
+            addCriterion("p_id >", value, "pId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("p_id >=", value, "pId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPIdLessThan(Integer value) {
+            addCriterion("p_id <", value, "pId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPIdLessThanOrEqualTo(Integer value) {
+            addCriterion("p_id <=", value, "pId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPIdIn(List<Integer> values) {
+            addCriterion("p_id in", values, "pId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPIdNotIn(List<Integer> values) {
+            addCriterion("p_id not in", values, "pId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPIdBetween(Integer value1, Integer value2) {
+            addCriterion("p_id between", value1, value2, "pId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("p_id not between", value1, value2, "pId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPNameIsNull() {
+            addCriterion("p_name is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPNameIsNotNull() {
+            addCriterion("p_name is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPNameEqualTo(String value) {
+            addCriterion("p_name =", value, "pName");
+            return (Criteria) this;
+        }
+
+        public Criteria andPNameNotEqualTo(String value) {
+            addCriterion("p_name <>", value, "pName");
+            return (Criteria) this;
+        }
+
+        public Criteria andPNameGreaterThan(String value) {
+            addCriterion("p_name >", value, "pName");
+            return (Criteria) this;
+        }
+
+        public Criteria andPNameGreaterThanOrEqualTo(String value) {
+            addCriterion("p_name >=", value, "pName");
+            return (Criteria) this;
+        }
+
+        public Criteria andPNameLessThan(String value) {
+            addCriterion("p_name <", value, "pName");
+            return (Criteria) this;
+        }
+
+        public Criteria andPNameLessThanOrEqualTo(String value) {
+            addCriterion("p_name <=", value, "pName");
+            return (Criteria) this;
+        }
+
+        public Criteria andPNameLike(String value) {
+            addCriterion("p_name like", value, "pName");
+            return (Criteria) this;
+        }
+
+        public Criteria andPNameNotLike(String value) {
+            addCriterion("p_name not like", value, "pName");
+            return (Criteria) this;
+        }
+
+        public Criteria andPNameIn(List<String> values) {
+            addCriterion("p_name in", values, "pName");
+            return (Criteria) this;
+        }
+
+        public Criteria andPNameNotIn(List<String> values) {
+            addCriterion("p_name not in", values, "pName");
+            return (Criteria) this;
+        }
+
+        public Criteria andPNameBetween(String value1, String value2) {
+            addCriterion("p_name between", value1, value2, "pName");
+            return (Criteria) this;
+        }
+
+        public Criteria andPNameNotBetween(String value1, String value2) {
+            addCriterion("p_name not between", value1, value2, "pName");
+            return (Criteria) this;
+        }
+
         public Criteria andMenuNameIsNull() {
             addCriterion("menu_name is null");
             return (Criteria) this;
@@ -421,6 +551,146 @@ public class MiniteaMenuExample {
 
         public Criteria andMenuStatusNotBetween(Integer value1, Integer value2) {
             addCriterion("menu_status not between", value1, value2, "menuStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andMenuImgIsNull() {
+            addCriterion("menu_img is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMenuImgIsNotNull() {
+            addCriterion("menu_img is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMenuImgEqualTo(String value) {
+            addCriterion("menu_img =", value, "menuImg");
+            return (Criteria) this;
+        }
+
+        public Criteria andMenuImgNotEqualTo(String value) {
+            addCriterion("menu_img <>", value, "menuImg");
+            return (Criteria) this;
+        }
+
+        public Criteria andMenuImgGreaterThan(String value) {
+            addCriterion("menu_img >", value, "menuImg");
+            return (Criteria) this;
+        }
+
+        public Criteria andMenuImgGreaterThanOrEqualTo(String value) {
+            addCriterion("menu_img >=", value, "menuImg");
+            return (Criteria) this;
+        }
+
+        public Criteria andMenuImgLessThan(String value) {
+            addCriterion("menu_img <", value, "menuImg");
+            return (Criteria) this;
+        }
+
+        public Criteria andMenuImgLessThanOrEqualTo(String value) {
+            addCriterion("menu_img <=", value, "menuImg");
+            return (Criteria) this;
+        }
+
+        public Criteria andMenuImgLike(String value) {
+            addCriterion("menu_img like", value, "menuImg");
+            return (Criteria) this;
+        }
+
+        public Criteria andMenuImgNotLike(String value) {
+            addCriterion("menu_img not like", value, "menuImg");
+            return (Criteria) this;
+        }
+
+        public Criteria andMenuImgIn(List<String> values) {
+            addCriterion("menu_img in", values, "menuImg");
+            return (Criteria) this;
+        }
+
+        public Criteria andMenuImgNotIn(List<String> values) {
+            addCriterion("menu_img not in", values, "menuImg");
+            return (Criteria) this;
+        }
+
+        public Criteria andMenuImgBetween(String value1, String value2) {
+            addCriterion("menu_img between", value1, value2, "menuImg");
+            return (Criteria) this;
+        }
+
+        public Criteria andMenuImgNotBetween(String value1, String value2) {
+            addCriterion("menu_img not between", value1, value2, "menuImg");
+            return (Criteria) this;
+        }
+
+        public Criteria andMenuIntroIsNull() {
+            addCriterion("menu_intro is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMenuIntroIsNotNull() {
+            addCriterion("menu_intro is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMenuIntroEqualTo(String value) {
+            addCriterion("menu_intro =", value, "menuIntro");
+            return (Criteria) this;
+        }
+
+        public Criteria andMenuIntroNotEqualTo(String value) {
+            addCriterion("menu_intro <>", value, "menuIntro");
+            return (Criteria) this;
+        }
+
+        public Criteria andMenuIntroGreaterThan(String value) {
+            addCriterion("menu_intro >", value, "menuIntro");
+            return (Criteria) this;
+        }
+
+        public Criteria andMenuIntroGreaterThanOrEqualTo(String value) {
+            addCriterion("menu_intro >=", value, "menuIntro");
+            return (Criteria) this;
+        }
+
+        public Criteria andMenuIntroLessThan(String value) {
+            addCriterion("menu_intro <", value, "menuIntro");
+            return (Criteria) this;
+        }
+
+        public Criteria andMenuIntroLessThanOrEqualTo(String value) {
+            addCriterion("menu_intro <=", value, "menuIntro");
+            return (Criteria) this;
+        }
+
+        public Criteria andMenuIntroLike(String value) {
+            addCriterion("menu_intro like", value, "menuIntro");
+            return (Criteria) this;
+        }
+
+        public Criteria andMenuIntroNotLike(String value) {
+            addCriterion("menu_intro not like", value, "menuIntro");
+            return (Criteria) this;
+        }
+
+        public Criteria andMenuIntroIn(List<String> values) {
+            addCriterion("menu_intro in", values, "menuIntro");
+            return (Criteria) this;
+        }
+
+        public Criteria andMenuIntroNotIn(List<String> values) {
+            addCriterion("menu_intro not in", values, "menuIntro");
+            return (Criteria) this;
+        }
+
+        public Criteria andMenuIntroBetween(String value1, String value2) {
+            addCriterion("menu_intro between", value1, value2, "menuIntro");
+            return (Criteria) this;
+        }
+
+        public Criteria andMenuIntroNotBetween(String value1, String value2) {
+            addCriterion("menu_intro not between", value1, value2, "menuIntro");
             return (Criteria) this;
         }
     }

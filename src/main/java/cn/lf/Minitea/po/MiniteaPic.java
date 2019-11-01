@@ -1,5 +1,7 @@
 package cn.lf.Minitea.po;
 
+import java.util.Date;
+
 public class MiniteaPic {
     private Integer id;
 
@@ -14,6 +16,10 @@ public class MiniteaPic {
     private Double picHeight;
 
     private String picIntro;
+
+    private Date uploadTime;
+
+    private String picKey;
 
     public Integer getId() {
         return id;
@@ -69,5 +75,21 @@ public class MiniteaPic {
 
     public void setPicIntro(String picIntro) {
         this.picIntro = picIntro == null ? null : picIntro.trim();
+    }
+
+    public Date getUploadTime() {
+        return uploadTime;
+    }
+
+    public void setUploadTime(Date uploadTime) {
+        this.uploadTime = uploadTime;
+    }
+
+    public String getPicKey() {
+        return picKey;
+    }
+
+    public void setPicKey(String picKey) {
+        this.picKey = picKey == null ? null : picKey.trim();
     }
 }

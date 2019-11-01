@@ -28,11 +28,6 @@ public class PicController {
 	
 	@RequestMapping("/toAdd")
 	public String toAdd(Model model)throws Exception{
-		MiniteaPic pic2 = picService.getById(5);
-		System.out.println("===================");
-		System.out.println(pic2.getId());
-		System.out.println("===================");
-		model.addAttribute("pic", pic2);
 		return "pic/AddForm";
 	}
 	
