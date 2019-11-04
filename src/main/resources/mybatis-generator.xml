@@ -40,7 +40,9 @@
 		   <columnOverride column="menu_img" javaType ="java.lang.String" jdbcType="VARCHAR"/>
 		</table> -->
 		<!-- <table tableName="minitea_user"></table> -->
-		<table tableName="minitea_pic"></table>
+		<!-- <table tableName="minitea_pic"></table> -->
+		<!-- <table tableName="pageconfig"></table> -->
+		<table tableName="menu"></table>
 		
 	</context>
 </generatorConfiguration>
