@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.lf.Minitea.mapper.PageconfigMapper" >
+  <resultMap id="BaseResultMap" type="cn.lf.Minitea.po.Pageconfig" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="bgpic" property="bgpic" jdbcType="VARCHAR" />
+    <result column="pic1" property="pic1" jdbcType="VARCHAR" />
+    <result column="pic2" property="pic2" jdbcType="VARCHAR" />
+    <result column="pic3" property="pic3" jdbcType="VARCHAR" />
+    <result column="pic4" property="pic4" jdbcType="VARCHAR" />
+    <result column="pic5" property="pic5" jdbcType="VARCHAR" />
+    <result column="value1" property="value1" jdbcType="VARCHAR" />
+    <result column="value2" property="value2" jdbcType="VARCHAR" />
+    <result column="value3" property="value3" jdbcType="VARCHAR" />
+    <result column="value4" property="value4" jdbcType="VARCHAR" />
+    <result column="value5" property="value5" jdbcType="VARCHAR" />
+    <result column="value6" property="value6" jdbcType="VARCHAR" />
+    <result column="value7" property="value7" jdbcType="VARCHAR" />
+    <result column="value8" property="value8" jdbcType="VARCHAR" />
+    <result column="value9" property="value9" jdbcType="VARCHAR" />
+    <result column="value0" property="value0" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, name, status, bgpic, pic1, pic2, pic3, pic4, pic5, value1, value2, value3, value4, 
+    value5, value6, value7, value8, value9, value0
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.lf.Minitea.po.PageconfigExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from pageconfig
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from pageconfig
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from pageconfig
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="cn.lf.Minitea.po.PageconfigExample" >
+    delete from pageconfig
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="cn.lf.Minitea.po.Pageconfig" >
+    insert into pageconfig (id, name, status, 
+      bgpic, pic1, pic2, 
+      pic3, pic4, pic5, value1, 
+      value2, value3, value4, 
+      value5, value6, value7, 
+      value8, value9, value0
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
+      #{bgpic,jdbcType=VARCHAR}, #{pic1,jdbcType=VARCHAR}, #{pic2,jdbcType=VARCHAR}, 
+      #{pic3,jdbcType=VARCHAR}, #{pic4,jdbcType=VARCHAR}, #{pic5,jdbcType=VARCHAR}, #{value1,jdbcType=VARCHAR}, 
+      #{value2,jdbcType=VARCHAR}, #{value3,jdbcType=VARCHAR}, #{value4,jdbcType=VARCHAR}, 
+      #{value5,jdbcType=VARCHAR}, #{value6,jdbcType=VARCHAR}, #{value7,jdbcType=VARCHAR}, 
+      #{value8,jdbcType=VARCHAR}, #{value9,jdbcType=VARCHAR}, #{value0,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.lf.Minitea.po.Pageconfig" >
+    insert into pageconfig
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="bgpic != null" >
+        bgpic,
+      </if>
+      <if test="pic1 != null" >
+        pic1,
+      </if>
+      <if test="pic2 != null" >
+        pic2,
+      </if>
+      <if test="pic3 != null" >
+        pic3,
+      </if>
+      <if test="pic4 != null" >
+        pic4,
+      </if>
+      <if test="pic5 != null" >
+        pic5,
+      </if>
+      <if test="value1 != null" >
+        value1,
+      </if>
+      <if test="value2 != null" >
+        value2,
+      </if>
+      <if test="value3 != null" >
+        value3,
+      </if>
+      <if test="value4 != null" >
+        value4,
+      </if>
+      <if test="value5 != null" >
+        value5,
+      </if>
+      <if test="value6 != null" >
+        value6,
+      </if>
+      <if test="value7 != null" >
+        value7,
+      </if>
+      <if test="value8 != null" >
+        value8,
+      </if>
+      <if test="value9 != null" >
+        value9,
+      </if>
+      <if test="value0 != null" >
+        value0,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="bgpic != null" >
+        #{bgpic,jdbcType=VARCHAR},
+      </if>
+      <if test="pic1 != null" >
+        #{pic1,jdbcType=VARCHAR},
+      </if>
+      <if test="pic2 != null" >
+        #{pic2,jdbcType=VARCHAR},
+      </if>
+      <if test="pic3 != null" >
+        #{pic3,jdbcType=VARCHAR},
+      </if>
+      <if test="pic4 != null" >
+        #{pic4,jdbcType=VARCHAR},
+      </if>
+      <if test="pic5 != null" >
+        #{pic5,jdbcType=VARCHAR},
+      </if>
+      <if test="value1 != null" >
+        #{value1,jdbcType=VARCHAR},
+      </if>
+      <if test="value2 != null" >
+        #{value2,jdbcType=VARCHAR},
+      </if>
+      <if test="value3 != null" >
+        #{value3,jdbcType=VARCHAR},
+      </if>
+      <if test="value4 != null" >
+        #{value4,jdbcType=VARCHAR},
+      </if>
+      <if test="value5 != null" >
+        #{value5,jdbcType=VARCHAR},
+      </if>
+      <if test="value6 != null" >
+        #{value6,jdbcType=VARCHAR},
+      </if>
+      <if test="value7 != null" >
+        #{value7,jdbcType=VARCHAR},
+      </if>
+      <if test="value8 != null" >
+        #{value8,jdbcType=VARCHAR},
+      </if>
+      <if test="value9 != null" >
+        #{value9,jdbcType=VARCHAR},
+      </if>
+      <if test="value0 != null" >
+        #{value0,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="cn.lf.Minitea.po.PageconfigExample" resultType="java.lang.Integer" >
+    select count(*) from pageconfig
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update pageconfig
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.name != null" >
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null" >
+        status = #{record.status,jdbcType=INTEGER},
+      </if>
+      <if test="record.bgpic != null" >
+        bgpic = #{record.bgpic,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pic1 != null" >
+        pic1 = #{record.pic1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pic2 != null" >
+        pic2 = #{record.pic2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pic3 != null" >
+        pic3 = #{record.pic3,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pic4 != null" >
+        pic4 = #{record.pic4,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pic5 != null" >
+        pic5 = #{record.pic5,jdbcType=VARCHAR},
+      </if>
+      <if test="record.value1 != null" >
+        value1 = #{record.value1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.value2 != null" >
+        value2 = #{record.value2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.value3 != null" >
+        value3 = #{record.value3,jdbcType=VARCHAR},
+      </if>
+      <if test="record.value4 != null" >
+        value4 = #{record.value4,jdbcType=VARCHAR},
+      </if>
+      <if test="record.value5 != null" >
+        value5 = #{record.value5,jdbcType=VARCHAR},
+      </if>
+      <if test="record.value6 != null" >
+        value6 = #{record.value6,jdbcType=VARCHAR},
+      </if>
+      <if test="record.value7 != null" >
+        value7 = #{record.value7,jdbcType=VARCHAR},
+      </if>
+      <if test="record.value8 != null" >
+        value8 = #{record.value8,jdbcType=VARCHAR},
+      </if>
+      <if test="record.value9 != null" >
+        value9 = #{record.value9,jdbcType=VARCHAR},
+      </if>
+      <if test="record.value0 != null" >
+        value0 = #{record.value0,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update pageconfig
+    set id = #{record.id,jdbcType=INTEGER},
+      name = #{record.name,jdbcType=VARCHAR},
+      status = #{record.status,jdbcType=INTEGER},
+      bgpic = #{record.bgpic,jdbcType=VARCHAR},
+      pic1 = #{record.pic1,jdbcType=VARCHAR},
+      pic2 = #{record.pic2,jdbcType=VARCHAR},
+      pic3 = #{record.pic3,jdbcType=VARCHAR},
+      pic4 = #{record.pic4,jdbcType=VARCHAR},
+      pic5 = #{record.pic5,jdbcType=VARCHAR},
+      value1 = #{record.value1,jdbcType=VARCHAR},
+      value2 = #{record.value2,jdbcType=VARCHAR},
+      value3 = #{record.value3,jdbcType=VARCHAR},
+      value4 = #{record.value4,jdbcType=VARCHAR},
+      value5 = #{record.value5,jdbcType=VARCHAR},
+      value6 = #{record.value6,jdbcType=VARCHAR},
+      value7 = #{record.value7,jdbcType=VARCHAR},
+      value8 = #{record.value8,jdbcType=VARCHAR},
+      value9 = #{record.value9,jdbcType=VARCHAR},
+      value0 = #{record.value0,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.lf.Minitea.po.Pageconfig" >
+    update pageconfig
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="bgpic != null" >
+        bgpic = #{bgpic,jdbcType=VARCHAR},
+      </if>
+      <if test="pic1 != null" >
+        pic1 = #{pic1,jdbcType=VARCHAR},
+      </if>
+      <if test="pic2 != null" >
+        pic2 = #{pic2,jdbcType=VARCHAR},
+      </if>
+      <if test="pic3 != null" >
+        pic3 = #{pic3,jdbcType=VARCHAR},
+      </if>
+      <if test="pic4 != null" >
+        pic4 = #{pic4,jdbcType=VARCHAR},
+      </if>
+      <if test="pic5 != null" >
+        pic5 = #{pic5,jdbcType=VARCHAR},
+      </if>
+      <if test="value1 != null" >
+        value1 = #{value1,jdbcType=VARCHAR},
+      </if>
+      <if test="value2 != null" >
+        value2 = #{value2,jdbcType=VARCHAR},
+      </if>
+      <if test="value3 != null" >
+        value3 = #{value3,jdbcType=VARCHAR},
+      </if>
+      <if test="value4 != null" >
+        value4 = #{value4,jdbcType=VARCHAR},
+      </if>
+      <if test="value5 != null" >
+        value5 = #{value5,jdbcType=VARCHAR},
+      </if>
+      <if test="value6 != null" >
+        value6 = #{value6,jdbcType=VARCHAR},
+      </if>
+      <if test="value7 != null" >
+        value7 = #{value7,jdbcType=VARCHAR},
+      </if>
+      <if test="value8 != null" >
+        value8 = #{value8,jdbcType=VARCHAR},
+      </if>
+      <if test="value9 != null" >
+        value9 = #{value9,jdbcType=VARCHAR},
+      </if>
+      <if test="value0 != null" >
+        value0 = #{value0,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.lf.Minitea.po.Pageconfig" >
+    update pageconfig
+    set name = #{name,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      bgpic = #{bgpic,jdbcType=VARCHAR},
+      pic1 = #{pic1,jdbcType=VARCHAR},
+      pic2 = #{pic2,jdbcType=VARCHAR},
+      pic3 = #{pic3,jdbcType=VARCHAR},
+      pic4 = #{pic4,jdbcType=VARCHAR},
+      pic5 = #{pic5,jdbcType=VARCHAR},
+      value1 = #{value1,jdbcType=VARCHAR},
+      value2 = #{value2,jdbcType=VARCHAR},
+      value3 = #{value3,jdbcType=VARCHAR},
+      value4 = #{value4,jdbcType=VARCHAR},
+      value5 = #{value5,jdbcType=VARCHAR},
+      value6 = #{value6,jdbcType=VARCHAR},
+      value7 = #{value7,jdbcType=VARCHAR},
+      value8 = #{value8,jdbcType=VARCHAR},
+      value9 = #{value9,jdbcType=VARCHAR},
+      value0 = #{value0,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
